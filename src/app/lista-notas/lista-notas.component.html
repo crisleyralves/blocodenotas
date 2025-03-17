@@ -1,0 +1,11 @@
+<h2>Minhas Notas</h2>
+
+<button (click)="adicionarNota()">Adicionar Nota</button>
+
+<div *ngIf="notaSelecionada">
+    <input [(ngModel)]="notaSelecionada.titulo" placeholder="Titulo">
+    <textarea [(ngModel)]="notaSelecionada.conteudo" placeHolder="Conteúdo"></textarea>
+    <button (click)="salvarNota(notaSelecionada)"></button>
+</div>
+
+<app-nota *ngFor="let nota of notas" [nota]="nota" (editar)="editarNota(nota)" (excluir)="excluirNota(nota.id)"></app-nota>
